@@ -58,37 +58,10 @@ public class PostAdapter extends ArrayAdapter<Post> {
         TextView likeNumber = (TextView) convertView.findViewById(R.id.textLike);
         TextView commentNumber = (TextView) convertView.findViewById(R.id.textComment);
         ImageView avatar = (ImageView) convertView.findViewById(R.id.imageView);
-        ImageView imageTrack = (ImageView) convertView.findViewById(R.id.imgPost);
+        ImageView imagePost = (ImageView) convertView.findViewById(R.id.imgPost);
         final ImageView menu = (ImageView) convertView.findViewById(R.id.menuImage);
 
 
-        // set action for clicking avatar
-/*        avatar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                visitWall(post);
-            }
-        });
-
-        // set action for clicking user name
-        userName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                visitWall(post);
-            }
-        });*/
-
-        // set action for clicking menu on each item list view
-/*        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // if this is post of current user
-                if(post.getUserName().equals(currentUser)) {
-                    showMenu(menu);
-                }
-                // if this is not post of current user, do nothing
-            }
-        });*/
 
 
 
@@ -97,47 +70,16 @@ public class PostAdapter extends ArrayAdapter<Post> {
 
         // Set avater image
         String url=post.getUrlAvatar();
-        Glide.with(context).load(url).apply(RequestOptions.circleCropTransform().placeholder(R.mipmap.ic_launcher_round)).into(avatar);
+        Glide.with(context).load(url).apply(RequestOptions.circleCropTransform().placeholder(R.mipmap.ic_camera)).into(avatar);
 
         //Set track image
         String url_image=post.getUrlImage();
-        Glide.with(context).load(url_image).apply(RequestOptions.placeholderOf(R.mipmap.ic_launcher)).into(imageTrack);
+        Glide.with(context).load(url_image).apply(RequestOptions.placeholderOf(R.mipmap.ic_camera)).into(imagePost);
 
         // Set other attribute of post ...
 
 
         return convertView;
     }
-/*    public void showMenu (View view)
-    {
-        PopupMenu menu = new PopupMenu (context, view);
-*//*        menu.setOnMenuItemClickListener (new PopupMenu.OnMenuItemClickListener ()
-        {
-            @Override
-            public boolean onMenuItemClick (MenuItem item)
-            {
-                int id = item.getItemId();
-                switch (id)
-                {
-                    case R.id.item_edit: Toast.makeText(context,"sửa",Toast.LENGTH_LONG).show(); break;
-                    case R.id.item_delete: Toast.makeText(context,"xóa",Toast.LENGTH_LONG).show(); break;
-                }
-                return true;
-            }
-        });
-        menu.inflate (R.menu.popup_menu_post);*//*
-        menu.show();
-    }*/
-/*    public void visitWall(Post post){
-        Intent intent;
-        if(post.getUserName().equals(currentUser)){
-            // if avatar clicked isn current user, start privacy wall activity ...
-            intent = new Intent(context, PrivacyWall.class);
-        }
-        else{
-            // if avatar clicked isn't current user, start friend wall activity
-            intent = new Intent(context, FriendWall.class);
-        }
-        context.startActivity(intent);
-    }*/
+
 }
