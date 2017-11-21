@@ -135,12 +135,4 @@ public class SearchActivity extends AppCompatActivity {
         });*/
     }
 
-    private void setupBottomNavigationView(){
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavViewBar);
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
-        BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationView);
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
-        menuItem.setChecked(true);
-    }
 }

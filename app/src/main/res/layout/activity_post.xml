@@ -20,8 +20,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/toolbartop">
-            <include layout="@layout/layout_center_viewpager"/>
 
+
+            <GridView
+                android:id="@+id/gridviewGallery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnWidth="280dp"
+                android:gravity="center"
+                android:horizontalSpacing="2dp"
+                android:numColumns="4"
+                android:padding="2dp"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="2dp"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
