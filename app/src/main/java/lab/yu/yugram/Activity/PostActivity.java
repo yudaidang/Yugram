@@ -1,6 +1,7 @@
 package lab.yu.yugram.Activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -8,8 +9,10 @@ import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -34,12 +37,14 @@ import lab.yu.yugram.Adapter.NotificationAdapter;
 import lab.yu.yugram.Adapter.UploadAdapter;
 import lab.yu.yugram.BottomNavigationViewHelper;
 import lab.yu.yugram.Fragment.CameraFragment;
+import lab.yu.yugram.Fragment.GalleryFragment;
 import lab.yu.yugram.Fragment.HomeFragment;
 import lab.yu.yugram.Fragment.MessagesFragment;
 import lab.yu.yugram.Model.HinhAnh;
 import lab.yu.yugram.Model.Notification;
 import lab.yu.yugram.R;
 import lab.yu.yugram.Utils.FileSearch;
+import lab.yu.yugram.Utils.SectionsPagerAdapter;
 
 public class PostActivity extends AppCompatActivity {
     private static final String TAG = "PostActivity";
@@ -59,38 +64,35 @@ public class PostActivity extends AppCompatActivity {
 
     public String PICTURES = ROOT_DIR + "/Pictures/instagram";
     public String CAMERA = ROOT_DIR + "/DCIM/camera";
-
+    private ViewPager mViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
-        BottomNavigationViewHelper.setupBottomNavigationView(this, ACTIVITY_NUM);
-        setupToolbar();
+
         initPermission();
-
-        String url1="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/21686381_967927180013063_1644726607964479174_n.jpg?oh=536dfab4b2d18e2d250fab9de6208365&oe=5A637CFB";
-        String urll1="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/21687485_1133775720087600_8541101764693327944_n.jpg?oh=b0b927dee62f2cec22aeb14a687e6814&oe=5A9A38C1";
-        String test ="/storage/emulated/0/Pictures/instagram/IMG_20161119_192730.jpg";
-
-        String path = Environment.getExternalStorageDirectory()+ "/DCIM/facebook/";
-
-        File imgFile = new File(path);
-        if(imgFile.exists())
-        {
-
-            ImageView imageView=(ImageView)findViewById(R.id.imageView);
-        }
-
-        gridView = (GridView) findViewById(R.id.gridviewGallery);
-        listImage = FileSearch.getFilePaths(path);
-/*        listImage.add(url1);
-        listImage.add(urll1);
-        listImage.add(test);*/
-        uploadAdapter = new UploadAdapter(this, listImage, R.layout.item_image_upload);
-        gridView.setAdapter(uploadAdapter);
+        setupViewPager();
 
 
+
+
+    }
+
+
+    private void setupViewPager(){
+        SectionsPagerAdapter adapter =  new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new GalleryFragment());
+        adapter.addFragment(new CameraFragment());
+
+        mViewPager = (ViewPager) findViewById(R.id.containerupload);
+        mViewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabsBottom);
+        tabLayout.setupWithViewPager(mViewPager);
+
+        tabLayout.getTabAt(0).setText("Gallery");
+        tabLayout.getTabAt(1).setText("Photo");
 
     }
 

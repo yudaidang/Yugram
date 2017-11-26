@@ -74,16 +74,12 @@ public class UploadAdapter extends BaseAdapter {
 
 
         ImageView imagePost = (ImageView) convertView.findViewById(R.id.grid_item_image);
-
-        String fileName = "FB_IMG_1490436667634.jpg";
-        String completePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)+"/DCIM/facebook/"+fileName;
-
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "/DCIM/facebook/FB_IMG_1490436667634.jpg");
-        Uri imageUri = Uri.fromFile(file);
-        Log.d(TAG, "onItemClick: selected: " + completePath);
         // Set avater image
+
         String url=imagesList.get(position);
-        Glide.with(context).load(new File(url)).apply(RequestOptions.placeholderOf(R.mipmap.ic_camera)).into(imagePost);
+        Log.d("Dai", url);
+        Glide.with(context).load(url).apply(RequestOptions.placeholderOf(R.mipmap.ic_camera)).into(imagePost);
+
 
 
 
