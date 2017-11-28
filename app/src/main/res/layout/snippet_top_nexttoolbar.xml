@@ -23,34 +23,20 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
-                    android:id="@+id/ivCloseShare"
-                    android:src="@mipmap/ic_close"
-                    android:tint="@color/drakGrey"
-                    />
+                    android:id="@+id/ivBackShare"
+                    android:src="@drawable/ic_back"/>
 
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/ivCloseShare"
-                    android:textColor="@color/drakGrey"
-                    android:text="Gallery"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_vertical"
-                    android:dropDownWidth="120dp"
-                    android:spinnerMode="dropdown"
-                    android:dropDownVerticalOffset="35dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Next"
+                    android:text="Share"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="15dp"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/drakGrey"
                     android:layout_centerVertical="true"
-                    android:id="@+id/tvNext"
+                    android:id="@+id/tvShare"
                     />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>

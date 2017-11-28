@@ -28,30 +28,7 @@
                     android:tint="@color/drakGrey"
                     />
 
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/ivCloseShare"
-                    android:textColor="@color/drakGrey"
-                    android:text="Gallery"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_vertical"
-                    android:dropDownWidth="120dp"
-                    android:spinnerMode="dropdown"
-                    android:dropDownVerticalOffset="35dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Next"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="15dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/drakGrey"
-                    android:layout_centerVertical="true"
-                    android:id="@+id/tvNext"
-                    />
+
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>

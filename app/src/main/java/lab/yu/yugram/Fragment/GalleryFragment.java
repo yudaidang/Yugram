@@ -2,6 +2,7 @@ package lab.yu.yugram.Fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.Image;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import lab.yu.yugram.Activity.NextActivity;
 import lab.yu.yugram.Activity.PostActivity;
 import lab.yu.yugram.Adapter.UploadAdapter;
 import lab.yu.yugram.R;
@@ -60,8 +62,8 @@ public class GalleryFragment extends Fragment {
         galleryImage = (ImageView) view.findViewById(R.id.galleryImageView);
         gridView = (GridView) view.findViewById(R.id.gridView);
         spinner = (Spinner) view.findViewById(R.id.spinner);
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.GONE);
+/*        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);*/
 
         ImageView uploadClose = (ImageView) view.findViewById(R.id.ivCloseShare);
         uploadClose.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +79,22 @@ public class GalleryFragment extends Fragment {
                 Log.d("Fragment Gallery", "onClick: navigating to the final share screen.");
             }
         });
+
+
+
+
         init();
+
+        TextView nextScreen = (TextView) view.findViewById(R.id.tvNext);
+        nextScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), NextActivity.class);
+                intent.putExtra("selected_image", mSelectedImage);
+                startActivity(intent);
+            }
+        });
         // Inflate the layout for this fragment
         return view;
     }

@@ -2,5 +2,11 @@
     <string name="app_name">Yugram</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="selected_image">selected_image</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="album_name">CameraSample</string>
+    <string name="selected_bitmap">selected_bitmap</string>
+    <string name="return_to_fragment">return_to_fragment</string>
+    <string name="edit_profile_fragment">Edit Profile</string>
+
 </resources>

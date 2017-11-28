@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lab.yu.yugram.Activity.NextActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/rel1">
+            <include layout="@layout/snippet_top_nexttoolbar"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/titleCam"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@+id/rel1"
+            android:paddingLeft="15dp"
+            android:layout_marginBottom="15dp">
+
+
+            <ImageView
+                android:id="@+id/imageUserCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingTop="10dp"
+                app:srcCompat="@mipmap/ic_launcher_round" />
+
+
+            <TextView
+                android:id="@+id/userPost"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/imageUserCamera"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:paddingLeft="@dimen/small_margin"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/extra_small_margin"
+                android:text="yudaidang"
+                android:textColor="@color/black"
+                android:textSize="@dimen/medium_text"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/titleCam"
+            android:weightSum="100">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="80">
+
+                <ImageView
+                    android:id="@+id/imageShare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="matrix"
+                    android:background="@color/grey"/>
+<!--
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"/>-->
+            </RelativeLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:textSize="@dimen/medium_margin"
+
+                android:id="@+id/description"
+                android:hint="Viết mô tả..."
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:gravity="top"
+                android:layout_marginBottom="50dp"
+                android:padding="20dp"
+                />
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottomNavigation">
+            <include layout="@layout/layout_bottom_navigation"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
