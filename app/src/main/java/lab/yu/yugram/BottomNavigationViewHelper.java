@@ -67,7 +67,6 @@ public class BottomNavigationViewHelper {
                 switch(item.getItemId()){
                     case R.id.ic_house:
                         Intent intent = new Intent(context, MainActivity.class);
-
                         context.startActivity(intent);
 
                         break;

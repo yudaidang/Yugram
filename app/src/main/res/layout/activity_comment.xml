@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="lab.yu.yugram.Activity.MainActivity">
+    tools:context="lab.yu.yugram.Activity.CommentActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-            <include layout="@layout/layout_top_tabs" />
+            <include layout="@layout/snippet_top_commenttoolbar" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,18 +23,13 @@
             android:layout_height="match_parent"
             android:layout_below="@id/toolbarTop"
             android:layout_marginBottom="50dp">
-
-            <ListView
-                android:id="@+id/listView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="none" />
+            <include layout="@layout/layout_center_viewpager"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bottomNavigation">
-            <include layout="@layout/layout_bottom_navigation"/>
+            <include layout="@layout/layout_bottom_comment"/>
         </RelativeLayout>
     </RelativeLayout>
 

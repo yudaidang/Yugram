@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:background="@android:color/background_light"
         >
         <android.support.v7.widget.Toolbar
@@ -23,34 +23,19 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
-                    android:id="@+id/ivCloseShare"
-                    android:src="@mipmap/ic_close"
-                    />
+                    android:id="@+id/ivCancel"
+                    android:src="@mipmap/ic_close"/>
 
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/ivCloseShare"
-                    android:textColor="@color/drakGrey"
-                    android:text="Gallery"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_vertical"
-                    android:dropDownWidth="120dp"
-                    android:spinnerMode="dropdown"
-                    android:dropDownVerticalOffset="35dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Next"
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="20dp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="15dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
-                    android:id="@+id/tvNext"
-                    />
+                    android:textColor="@color/drakGrey"
+                    android:id="@+id/ivSaveProfile"
+                    android:src="@mipmap/ic_save"/>
+
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>

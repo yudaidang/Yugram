@@ -55,7 +55,13 @@ public class SearchActivity extends AppCompatActivity {
         listView.setAdapter(userAdapter);
 
         // add post for newsfeed
-
+        ImageView imageView = (ImageView) findViewById(R.id.ic_back);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 
@@ -100,39 +106,6 @@ public class SearchActivity extends AppCompatActivity {
 
 
         context = getApplicationContext();
-       /* imgCamera = (ImageView) findViewById(R.id.ic_camera);
-        imgCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                CameraFragment cmFragment = new CameraFragment();
-                fragmentTransaction.replace(R.id.container, cmFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-            }
-        });
-        imgSend = (ImageView) findViewById(R.id.ic_send);
-        imgSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                MessagesFragment meFragment = new MessagesFragment();
-                fragmentTransaction.replace(R.id.container, meFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-            }
-        });
-        textView = (TextView) findViewById(R.id.ic_logo);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                HomeFragment homeFragment = new HomeFragment();
-                fragmentTransaction.replace(R.id.container, homeFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-            }
-        });*/
     }
 
 }

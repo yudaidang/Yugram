@@ -1,6 +1,7 @@
 package lab.yu.yugram.Activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,9 +12,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -39,11 +44,21 @@ public class ProfileActivity extends AppCompatActivity {
     private ArrayList<Post> postArray = new ArrayList<Post>() ;
     private PostAdapter postArrayAdapter;
     private ListView listView;
-
+    ImageButton imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+/*        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.totalComment);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, CommentActivity.class);
+                ProfileActivity.this.startActivity(intent);
+
+            }
+        });*/
 
         BottomNavigationViewHelper.setupBottomNavigationView(this, ACTIVITY_NUM);
         listView = (ListView) findViewById(R.id.listView);
@@ -53,7 +68,13 @@ public class ProfileActivity extends AppCompatActivity {
         postArrayAdapter = new PostAdapter(this,R.layout.item_post,postArray);
         listView.setAdapter(postArrayAdapter);
         addPost();
-
+        ImageView uploadClose = (ImageView) findViewById(R.id.backImage);
+        uploadClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         ImageView avatarUser = (ImageView) findViewById(R.id.avatarProfile);
         ImageView backgroundUser = (ImageView) findViewById(R.id.backGroundImage);
         //set header profile
@@ -62,7 +83,37 @@ public class ProfileActivity extends AppCompatActivity {
 
         Glide.with(this).load(url_image_background).apply(RequestOptions.placeholderOf(R.mipmap.ic_launcher_round)).into(backgroundUser);
         Glide.with(this).load(url_image_user).apply(RequestOptions.circleCropTransform().placeholder(R.mipmap.ic_launcher_round)).into(avatarUser);
-    }
+
+        imageView = (ImageButton) findViewById(R.id.menuProfile);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(ProfileActivity.this, imageView);
+
+                popup.getMenuInflater().inflate(R.menu.menu_profile, popup.getMenu());
+                popup.show();
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch(item.getItemId()){
+                            case R.id.editProfile:
+                                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                                ProfileActivity.this.startActivity(intent);
+                                return true;
+                            case R.id.changePassword:
+                                Intent intent1 = new Intent(ProfileActivity.this, ChangePasswordActivity.class);
+                                ProfileActivity.this.startActivity(intent1);
+                                return true;
+                            case R.id.logOut:
+                                Toast.makeText(ProfileActivity.this,"You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+            }
+        });
+}
 
     @Override
     public void onPause(){

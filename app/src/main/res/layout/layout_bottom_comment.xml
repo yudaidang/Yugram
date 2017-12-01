@@ -1,0 +1,47 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/bottomNavViewBar"
+            android:background="@drawable/white_grey_border_top"
+            app:itemIconTint="@color/drawer_item">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="15"
+                    android:hint="Thêm bình luận..."
+                    android:paddingLeft="20dp"
+                    android:gravity="left"
+                    android:layout_toLeftOf="@id/ic_back"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:id="@+id/ic_logo"/>
+
+                <ImageView
+                    android:id="@+id/ic_post"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="5dp"
+                    android:src="@mipmap/ic_save"
+                    android:tint="@color/white" />
+            </RelativeLayout>
+        </android.support.design.widget.BottomNavigationView>
+
+    </RelativeLayout>
+</merge>

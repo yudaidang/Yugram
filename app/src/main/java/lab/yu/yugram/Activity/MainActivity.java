@@ -2,6 +2,7 @@ package lab.yu.yugram.Activity;
 
 import android.content.Context;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
@@ -13,8 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Comment;
 
 import java.util.ArrayList;
 
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         postArrayAdapter = new PostAdapter(this,R.layout.item_post,postArray);
         listView.setAdapter(postArrayAdapter);
 
+
         // add post for newsfeed
         addPost();
         // set sample current user
@@ -56,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor=sharedPreferences.edit();
         editor.putString("userName","hoanghtk3108");
         editor.commit();
+
+
+
     }
 
     @Override

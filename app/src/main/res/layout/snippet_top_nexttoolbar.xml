@@ -23,6 +23,7 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
+                    android:tint="@color/black"
                     android:id="@+id/ivBackShare"
                     android:src="@drawable/ic_back"/>
 
@@ -34,7 +35,7 @@
                     android:layout_marginRight="15dp"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/drakGrey"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
                     android:id="@+id/tvShare"
                     />
